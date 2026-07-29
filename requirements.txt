@@ -1,6 +1,18 @@
-numpy
+# Swan Teleco churn project — runtime dependencies
+# Install with:  pip install -r requirements.txt
+#
+# NOTE on numpy pin: matplotlib 3.11.0's compiled extensions are ABI-incompatible
+# with numpy 2.5.0 (rendering segfaults with a native C++ exception). Pinning numpy
+# to the 2.3.x line resolves it while satisfying pandas 3.x / scikit-learn / scipy.
+# Remove the upper bound once matplotlib ships a wheel built against numpy >= 2.4.
+numpy>=2.3,<2.4
 pandas
-openpyxl
+openpyxl          # Excel engine for reading customer_data.xlsx
 seaborn
 matplotlib
 scikit-learn
+pydantic          # schema validation of the cleaned customer view (swan.data)
+joblib            # persisting the final churn model (outputs/final_churn_model.joblib)
+
+# Dev / testing (optional at runtime):
+pytest            # run the swan package unit tests:  pytest -q
