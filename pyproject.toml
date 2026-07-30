@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "swanteleco"
+version = "1.0.0"
+description = "Swan Teleco customer churn analysis & retention modelling"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24,<2",
+    "pandas>=2.0,<3",
+    "openpyxl>=3.1,<4",
+    "seaborn>=0.12,<1",
+    "matplotlib>=3.7,<4",
+    "scikit-learn>=1.3,<2",
+    "pydantic>=2.0,<3",
+    "joblib>=1.2,<2",
+]
+
+[tool.setuptools.packages.find]
+include = ["swan*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
